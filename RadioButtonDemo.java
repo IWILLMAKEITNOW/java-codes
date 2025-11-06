@@ -50,7 +50,7 @@ pigRadio.addActionListner(radioListener);
     public static void main(String[] args) {
         
         try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeel());
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -63,4 +63,5 @@ pigRadio.addActionListner(radioListener);
             }
         });
 }
+
 } 
