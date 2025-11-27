@@ -11,7 +11,7 @@ public class regcat2 extends JFrame implements ActionListener {
     private JTextArea addressArea;
     private JButton exitBtn, registerBtn;
     private JTextArea displayArea;
-    private int nextId = 1; // For proper ID generation
+    private int nextId = 1; 
 
     public regcat2() {
         setTitle("Registration Form");
@@ -19,22 +19,22 @@ public class regcat2 extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout(10, 10));
         
-        // Create header
+        
         JPanel headerPanel = new JPanel();
         JLabel headerLabel = new JLabel("Registration Form");
         headerLabel.setFont(new Font("Arial", Font.BOLD, 16));
         headerPanel.add(headerLabel);
         
-        // Create form panel
+        
         JPanel formPanel = new JPanel(new GridLayout(4, 2, 10, 10));
         formPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         
-        // Name field
+        
         formPanel.add(new JLabel("Name:"));
         nameField = new JTextField();
         formPanel.add(nameField);
         
-        // Gender field
+        
         formPanel.add(new JLabel("Gender:"));
         JPanel genderPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         maleRadio = new JRadioButton("Male");
@@ -46,18 +46,18 @@ public class regcat2 extends JFrame implements ActionListener {
         genderPanel.add(femaleRadio);
         formPanel.add(genderPanel);
         
-        // Contact field
+        
         formPanel.add(new JLabel("Contact:"));
         contactField = new JTextField();
         formPanel.add(contactField);
         
-        // Address field
+        
         formPanel.add(new JLabel("Address:"));
         addressArea = new JTextArea(3, 20);
         JScrollPane addressScroll = new JScrollPane(addressArea);
         formPanel.add(addressScroll);
         
-        // Create button panel
+        
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
         exitBtn = new JButton("Exit");
         registerBtn = new JButton("Register");
@@ -66,23 +66,22 @@ public class regcat2 extends JFrame implements ActionListener {
         buttonPanel.add(exitBtn);
         buttonPanel.add(registerBtn);
         
-        // Create left panel container
+        
         JPanel leftPanel = new JPanel(new BorderLayout());
         leftPanel.add(formPanel, BorderLayout.CENTER);
-        leftPanel.add(buttonPanel, BorderLayout.SOUTH);
-        
-        // Create display area
+        leftPanel.add(buttonPanel, BorderLayout.SOUTH)
+            
         displayArea = new JTextArea(10, 40);
         displayArea.setEditable(false);
         displayArea.setFont(new Font("Monospaced", Font.PLAIN, 12));
         JScrollPane displayScroll = new JScrollPane(displayArea);
         
-        // Initialize display header
+        
         displayArea.setText(String.format("%-3s %-15s %-8s %-18s %-12s\n", 
             "ID", "Name", "Gender", "Address", "Contact"));
         displayArea.append("-----------------------------------------------------------------\n");
         
-        // Add components to frame
+        
         add(headerPanel, BorderLayout.NORTH);
         add(leftPanel, BorderLayout.WEST);
         add(displayScroll, BorderLayout.CENTER);
@@ -112,7 +111,7 @@ public class regcat2 extends JFrame implements ActionListener {
         String address = addressArea.getText().trim();
         String contact = contactField.getText().trim();
         
-        // Validation
+        
         if (name.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please enter name!");
             nameField.requestFocus();
@@ -165,4 +164,5 @@ public class regcat2 extends JFrame implements ActionListener {
             }
         });
     }
+
 }
